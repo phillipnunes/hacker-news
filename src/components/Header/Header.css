@@ -1,0 +1,31 @@
+.header {
+  display: flex;
+  height: 50px;
+  background-color: black;
+}
+.header__logo,
+.header__menu {
+  display: flex;
+}
+
+.header__menu {
+  margin-left: 30px;
+}
+
+.header__image {
+  width: 60px;
+}
+
+.header__title,
+.header__item-menu {
+  align-self: center;
+  color: #fb683a;
+  font-size: 25px;
+}
+
+.header__item-menu {
+  text-decoration: none;
+}
+.header__item-menu:first-child {
+  margin-right: 8px;
+}
