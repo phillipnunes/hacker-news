@@ -5,13 +5,15 @@ import { template } from "handlebars";
 class Content extends Component {
   render () {
     return (
-      <div className="content">
-        <a className="content__news-link" href="#!">
-          <p className="content__title">Some news title here</p>
-        </a>
-        <a className="content__author-link" href="#!">
-          <p className="content__author-url">(fun-fun.it)</p>
-        </a>
+      <div>
+        <div className="content">
+          <a className="content__news-link" href="#!">
+            <p className="content__title">Some news title here</p>
+          </a>
+          <a className="content__author-link" href="#!">
+            <p className="content__author-url">(fun-fun.fun)</p>
+          </a>
+        </div>
       </div>
     )
   }

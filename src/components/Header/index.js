@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import logo from './logo.svg'
+import logo from './logo.png'
 import './Header.css'
 
 class Header extends Component {
@@ -8,10 +8,13 @@ class Header extends Component {
       <header className="header">
         <div className="header__logo">
           <img className="header__image" src={logo} alt="An amazing logo"/>
-          <p className="header__title">Rack News</p>
+          <p className="header__title">Hacker News</p>
         </div>
         <div className="header__menu">
           <a href="#!" className="header__item-menu">news</a>
+          <span className="header__menu-divisor"></span>
+          <a href="#!" className="header__item-menu">best stories</a>
+          <span className="header__menu-divisor"></span>
           <a href="#!" className="header__item-menu">donnuts?</a>
         </div>
       </header>
