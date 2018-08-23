@@ -1,0 +1,36 @@
+.content {
+  background: #f5f7ee;
+  display: flex;
+  height: 50px;
+  padding: 0 10px;
+  margin-bottom: 5px;
+}
+
+.content__news-link,
+.content__author-link {
+  text-decoration: none;
+  align-self: center;
+}
+
+.content__author-link {
+  margin-left: 5px;
+}
+.content__author-link:hover {
+  text-decoration: underline;
+}
+
+.content__title,
+.content__author-url {
+  margin: 0;
+}
+
+.content__title {
+  font-size: 18px;
+  color: black;
+}
+
+.content__author-url {
+  font-size: 14px;
+  color: #828282;
+}
+

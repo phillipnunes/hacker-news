@@ -11,8 +11,8 @@ class Header extends Component {
           <p className="header__title">Rack News</p>
         </div>
         <div className="header__menu">
-          <a href="#" className="header__item-menu">news</a>
-          <a href="#" className="header__item-menu">donnuts?</a>
+          <a href="#!" className="header__item-menu">news</a>
+          <a href="#!" className="header__item-menu">donnuts?</a>
         </div>
       </header>
     )
