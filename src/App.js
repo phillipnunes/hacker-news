@@ -8,32 +8,50 @@ class App extends Component {
   constructor() {
     super()
     this.state = {
-      newsList: [],
+      news: [],
       error: false
     }
   }
 
   componentDidMount() {
+    this.newsIdList()
+  }
+
+  newsIdList() {
     axios.get('https://hacker-news.firebaseio.com/v0/newstories.json/')
+    .then( response => {
+      this.newsItemDetails(response.data)
+    })
+    .catch( error => {
+      this.setState({
+        error: error.message
+      })
+    })
+  }
+
+  newsItemDetails(newsIdList) {
+    newsIdList.forEach(newsId => {
+      axios.get(`https://hacker-news.firebaseio.com/v0/item/${newsId}.json`)
       .then( response => {
-        this.setState({
-          newsList: response.data
-        })
+        if (response.data.url) {
+          this.setState({
+            news: [...this.state.news, response.data]
+          })
+        }
       })
       .catch( error => {
-        this.setState({
-          error: error.message
-        })
+        console.log(error)
       })
+    })
   }
 
   render() {
-    const { error, newsList } = this.state
+    const { error, news } = this.state
 
     return (
       <div className="App">
         <Header />
-        <Content error={error} newsList={newsList} />
+        <Content error={error} news={news} />
       </div>
     )
   }
