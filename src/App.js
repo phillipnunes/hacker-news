@@ -10,7 +10,10 @@ class App extends Component {
     super()
     this.state = {
       news: [],
-      error: false
+      error: false,
+
+      qtdPages: null,
+      firstPage: 0
     }
   }
 
@@ -21,7 +24,14 @@ class App extends Component {
   newsIdList() {
     axios.get('https://hacker-news.firebaseio.com/v0/newstories.json/')
     .then( response => {
-      this.newsItemDetails(response.data)
+      this.setState({
+        qtdPages: Object.keys(response.data).length,
+        idNews: response.data
+      })
+
+      this.newsItemDetails(
+        this.paginate(this.state.idNews)
+      )
     })
     .catch( error => {
       this.setState({
@@ -44,6 +54,19 @@ class App extends Component {
         console.log(error)
       })
     })
+  }
+
+  paginate(allPages) {
+    const qtdToShow = 10
+    let firstPage = this.state.firstPage
+    let lastPage = firstPage + qtdToShow
+    let pagesToRender = allPages.slice(firstPage, lastPage)
+
+    this.setState({
+      firstPage: lastPage + 1
+    })
+
+    return pagesToRender
   }
 
   render() {
