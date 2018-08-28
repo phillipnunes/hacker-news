@@ -4,15 +4,17 @@ import Header from './components/Header'
 import Content from './components/Content'
 import axios from 'axios'
 import { BrowserRouter, Route } from 'react-router-dom'
+import ReactPaginate from 'react-paginate'
 
 class App extends Component {
   constructor() {
     super()
     this.state = {
       news: [],
+      idNews: [],
       error: false,
 
-      qtdPages: null,
+      qtdPages: 0,
       firstPage: 0
     }
   }
@@ -29,9 +31,7 @@ class App extends Component {
         idNews: response.data
       })
 
-      this.newsItemDetails(
-        this.paginate(this.state.idNews)
-      )
+      this.handlePagination()
     })
     .catch( error => {
       this.setState({
@@ -69,6 +69,14 @@ class App extends Component {
     return pagesToRender
   }
 
+  handlePagination() {
+    this.setState({ news: [] }) // Isso precisa ser refeito
+
+    this.newsItemDetails(
+      this.paginate(this.state.idNews)
+    )
+  }
+
   render() {
     const { error, news } = this.state
 
@@ -78,6 +86,18 @@ class App extends Component {
           <Header />
           <Route path='/news' render={()=><Content error={error} news={news}/>} />
           <Route path='/best-stories' render={()=><Content error={error} news={news}/>} />
+
+          <ReactPaginate previousLabel={"previous"}
+                       nextLabel={"next"}
+                       breakLabel={<a href="">...</a>}
+                       breakClassName={"break-me"}
+                       pageCount={this.state.qtdPages}
+                       marginPagesDisplayed={2}
+                       pageRangeDisplayed={5}
+                       onPageChange={this.handlePagination.bind(this)}
+                       containerClassName={"pagination"}
+                       subContainerClassName={"pages pagination"}
+                       activeClassName={"active"} />
         </div>
       </BrowserRouter>
     )
