@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import { Router, Route, Switch } from 'react-router';
+import { Link } from 'react-router-dom'
 import logo from './logo.png'
 import './Header.css'
 
@@ -12,11 +12,11 @@ class Header extends Component {
           <p className="header__title">Hacker News</p>
         </div>
           <div className="header__menu">
-            <a href="#!" className="header__item-menu">news</a>
+            <Link to='/news' children='news' className="header__item-menu"/>
             <span className="header__menu-divisor"></span>
-            <a href="#!" className="header__item-menu">best stories</a>
+            <Link to='/best-stories' children='best stories' className="header__item-menu"/>
             <span className="header__menu-divisor"></span>
-            <a href="#!" className="header__item-menu">donnuts?</a>
+            <Link to='/donnuts' children='donnuts?' className="header__item-menu"/>
           </div>
       </header>
     )

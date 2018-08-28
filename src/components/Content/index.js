@@ -9,7 +9,7 @@ class Content extends Component {
   render () {
     if (this.props.error) {
       return <div>Error: {this.props.error}</div>
-    }  else {
+    } else if (this.props.news) {
       return (
         this.props.news.map( (item, index) =>
           <div key={index}>
@@ -23,6 +23,10 @@ class Content extends Component {
             </div>
           </div>
         )
+      )
+    } else {
+      return (
+        <div></div>
       )
     }
   }

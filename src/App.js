@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import Header from './components/Header'
 import Content from './components/Content'
 import axios from 'axios'
+import { BrowserRouter, Route } from 'react-router-dom'
 
 class App extends Component {
   constructor() {
@@ -49,10 +50,13 @@ class App extends Component {
     const { error, news } = this.state
 
     return (
-      <div className="App">
-        <Header />
-        <Content error={error} news={news} />
-      </div>
+      <BrowserRouter>
+        <div className="App">
+          <Header />
+          <Route path='/news' render={()=><Content error={error} news={news}/>} />
+          <Route path='/best-stories' render={()=><Content error={error} news={news}/>} />
+        </div>
+      </BrowserRouter>
     )
   }
 }
