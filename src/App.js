@@ -82,22 +82,22 @@ class App extends Component {
 
     return (
       <BrowserRouter>
-        <div className="App">
+        <div className="app">
           <Header />
           <Route path='/news' render={()=><Content error={error} news={news}/>} />
           <Route path='/best-stories' render={()=><Content error={error} news={news}/>} />
 
-          <ReactPaginate previousLabel={"previous"}
-                       nextLabel={"next"}
+          <ReactPaginate previousLabel={"<"}
+                       nextLabel={">"}
                        breakLabel={<a href="">...</a>}
-                       breakClassName={"break-me"}
+                       breakClassName={"app__break-me"}
                        pageCount={this.state.qtdPages}
                        marginPagesDisplayed={2}
                        pageRangeDisplayed={5}
                        onPageChange={this.handlePagination.bind(this)}
-                       containerClassName={"pagination"}
-                       subContainerClassName={"pages pagination"}
-                       activeClassName={"active"} />
+                       containerClassName={"app__pagination"}
+                       subContainerClassName={"app__pages app__pagination"}
+                       activeClassName={"app__active"} />
         </div>
       </BrowserRouter>
     )

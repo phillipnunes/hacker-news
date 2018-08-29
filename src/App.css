@@ -1,4 +1,36 @@
-.App {
+.app {
   width: 85%;
   margin: 0 auto;
+}
+
+.app__pagination {
+  display: flex;
+  justify-content: space-between;
+  max-width: 700px;
+  margin: 30px auto;
+}
+
+.app__pagination li {
+  display: flex;
+  justify-content: center;
+  list-style-type: none;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+
+.app__pagination a {
+  color: #08085c;
+  align-self: center;
+  text-decoration: none;
+}
+
+.app__pagination a:focus {
+  outline: 0;
+}
+
+.app__active {
+  color: #1717cf;
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }
