@@ -14,15 +14,17 @@
   display: flex;
   justify-content: center;
   list-style-type: none;
+  cursor: pointer;
   width: 30px;
   height: 30px;
-  cursor: pointer;
 }
 
 .app__pagination a {
   color: #08085c;
+  text-align: center;
   align-self: center;
   text-decoration: none;
+  width: 100%;
 }
 
 .app__pagination a:focus {

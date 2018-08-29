@@ -70,7 +70,7 @@ class App extends Component {
   }
 
   handlePagination() {
-    this.setState({ news: [] }) // Isso precisa ser refeito
+    this.setState({ news: [] })
 
     this.newsItemDetails(
       this.paginate(this.state.idNews)
