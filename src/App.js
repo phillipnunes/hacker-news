@@ -2,6 +2,7 @@ import './App.css'
 import React, { Component } from 'react'
 import Header from './components/Header'
 import Content from './components/Content'
+import Elliot from './components/Elliot'
 import axios from 'axios'
 import { BrowserRouter, Route } from 'react-router-dom'
 import ReactPaginate from 'react-paginate'
@@ -13,6 +14,7 @@ class App extends Component {
       news: [],
       idNews: [],
       error: false,
+      hide: true,
 
       qtdPages: 0,
       firstPage: 0
@@ -84,8 +86,8 @@ class App extends Component {
       <BrowserRouter>
         <div className="app">
           <Header />
-          <Route path='/news' render={()=><Content error={error} news={news}/>} />
-          <Route path='/best-stories' render={()=><Content error={error} news={news}/>} />
+          <Route path='/' exact component={Elliot} />
+          <Route path='/news' render={ _ => <Content error={error} news={news}/>} />
 
           <ReactPaginate previousLabel={"<"}
                        nextLabel={">"}

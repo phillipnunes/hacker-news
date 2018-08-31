@@ -7,17 +7,13 @@ class Header extends Component {
   render () {
     return (
       <header className="header">
-        <div className="header__logo">
+        <Link to="/" className="header__logo" >
           <img className="header__image" src={logo} alt="An amazing logo"/>
           <p className="header__title">Hacker News</p>
+        </Link>
+        <div className="header__menu">
+          <Link to='/news' children='news' className="header__item-menu" />
         </div>
-          <div className="header__menu">
-            <Link to='/news' children='news' className="header__item-menu"/>
-            <span className="header__menu-divisor"></span>
-            <Link to='/best-stories' children='best stories' className="header__item-menu"/>
-            <span className="header__menu-divisor"></span>
-            <Link to='/donnuts' children='donnuts?' className="header__item-menu"/>
-          </div>
       </header>
     )
   }

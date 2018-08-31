@@ -1,8 +1,8 @@
 .content {
   background: #f5f7ee;
   display: flex;
-  height: 50px;
-  padding: 0 10px;
+  min-height: 50px;
+  padding: 3px 10px;
   margin-bottom: 5px;
 }
 

@@ -24,10 +24,6 @@ class Content extends Component {
           </div>
         )
       )
-    } else {
-      return (
-        <div></div>
-      )
     }
   }
 }

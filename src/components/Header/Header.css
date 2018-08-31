@@ -8,6 +8,9 @@
 .header__menu {
   display: flex;
 }
+.header__logo {
+  text-decoration: none;
+}
 
 .header__menu {
   margin-left: 30px;
